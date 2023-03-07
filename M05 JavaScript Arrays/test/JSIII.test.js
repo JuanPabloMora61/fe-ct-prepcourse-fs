@@ -11,7 +11,7 @@ const {
    agregarNumeros,
    promedioResultadosTest,
    numeroMasGrande,
-   multiplicarArgumentos,
+   multiplicarArgumentos, 
    cuentoElementos,
    diaDeLaSemana,
    empiezaConNueve,
@@ -134,7 +134,7 @@ describe('JAVASCRIPT III', function () {
       });
    });
 
-   describe('multiplicarArgumentos()', function () {
+   describe('multiplicarArgumentos(arguments)', function () {
       it('Debe retornar el producto de los argumentos', function () {
          const product = multiplicarArgumentos(5, 5);
          const product2 = multiplicarArgumentos();
@@ -147,7 +147,7 @@ describe('JAVASCRIPT III', function () {
          expect(product4).toBe(1);
          expect(product5).toBe(0);
       });
-   });
+   }); 
 
    describe('cuentoElementos(array)', function () {
       it('Debe retornar la cantidad de elementos mayores a a 18', function () {
