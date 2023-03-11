@@ -6,6 +6,15 @@ function deObjetoAarray(objeto) {
    // Estos elementos debe ser cada par clave:valor del objeto recibido.
    // [EJEMPLO]: {D: 1, B: 2, C: 3} ---> [['D', 1], ['B', 2], ['C', 3]].
    // Tu código:
+   var newArray = new Array();
+
+   for (let i = 0; i < Object.keys(objeto).length; i++) {
+      var objArray = new Array();
+      objArray.push(Object.keys(objeto)[i]);
+      objArray.push(Object.values(objeto)[i]);
+      newArray.push(objArray);
+   }
+   return newArray;
 }
 
 function numberOfCharacters(string) {
@@ -14,6 +23,34 @@ function numberOfCharacters(string) {
    // Las letras deben estar en orden alfabético.
    // [EJEMPLO]: "adsjfdsfsfjsdjfhacabcsbajda" ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
    // Tu código:
+   var strArr = string.split("");
+
+// Ordenar por orden alfabetico
+const ordArray = strArr.sort(function(a, b){
+   if(a < b) { return -1; }
+   if(a > b) { return 1; }
+   return 0;
+});
+
+// Contar el numero de veces que se repite con prototype function .count()
+Object.defineProperties(Array.prototype, {
+   count: {
+       value: function(value) {
+           return this.filter(x => x==value).length;
+       }
+   }
+});
+
+let result = ordArray.filter((item,index)=>{
+   return ordArray.indexOf(item) === index;
+ });
+ 
+var obj = new Object();
+ for (let i = 0; i < result.length; i++) {
+   obj[result[i]] = strArr.count(result[i])
+ }
+
+ return (obj);
 }
 
 function capToFront(string) {
@@ -22,6 +59,21 @@ function capToFront(string) {
    // Retornar el string.
    // [EJEMPLO]: soyHENRY ---> HENRYsoy
    // Tu código:
+   var string = "soyHENRY";
+   var strArr = string.split("");
+   var strMay = [];
+   var strMin = [];
+
+   for (let i = 0; i < strArr.length; i++) {
+
+      if(strArr[i] === strArr[i].toUpperCase()){
+         strMay.push(strArr[i]);
+      }else if(strArr[i] === strArr[i].toLowerCase()){
+         strMin.push(strArr[i]);
+      }
+   }
+
+   return strMay.concat(strMin).join("");
 }
 
 function asAmirror(frase) {
