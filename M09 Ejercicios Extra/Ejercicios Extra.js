@@ -41,6 +41,7 @@ Object.defineProperties(Array.prototype, {
    }
 });
 
+//Eliminar repetidos
 let result = ordArray.filter((item,index)=>{
    return ordArray.indexOf(item) === index;
  });
@@ -59,7 +60,6 @@ function capToFront(string) {
    // Retornar el string.
    // [EJEMPLO]: soyHENRY ---> HENRYsoy
    // Tu código:
-   var string = "soyHENRY";
    var strArr = string.split("");
    var strMay = [];
    var strMin = [];
@@ -81,12 +81,26 @@ function asAmirror(frase) {
    // La diferencia es que cada palabra estará escrita al inverso.
    // [EJEMPLO]: "The Henry Challenge is close!"  ---> "ehT yrneH egnellahC si !esolc"
    // Tu código:
+
+   var palabras = frase.split(" ");
+
+   for (let i = 0; i < palabras.length; i++) {
+   palabras[i] = palabras[i].split("").reverse().join("");
+   }
+
+   return palabras.join(" ");
 }
 
 function capicua(numero) {
    // Si el número que recibes es capicúa debes retornar el string: "Es capicua".
    // Caso contrario: "No es capicua".
    // Tu código:
+   if(numero.toString() === numero.toString().reverse()){
+      return "Es capicua"
+   }else{
+      return "No es capicua"
+   }
+
 }
 
 function deleteAbc(string) {
